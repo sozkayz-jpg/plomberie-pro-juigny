@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import AdvantagesBanner from '../components/AdvantagesBanner.astro';
+
+interface Props {
+  ville: string;
+  departement: string;
+  codePostal: string;
+  lat: number;
+  lng: number;
+  temoignages: {
+    name: string;
+    text: string;
+    rating: number;
+    avatar: string;
+  }[];
+}
+
+const { ville, departement, codePostal, lat, lng, temoignages } = Astro.props;
+
+const services = [
+  { title: "Dépannage plomberie", slug: "depannage-plomberie", desc: "Fuite d'eau, robinet qui goutte, WC bouché. Intervention rapide." },
+  { title: "Installation sanitaire", slug: "installation-sanitaire", desc: "Pose de lavabo, douche, baignoire, évier." },
+  { title: "Chauffage & chaudière", slug: "chauffage-chaudiere", desc: "Installation, entretien et réparation." },
+  { title: "Débouchage canalisation", slug: "debouchage-canalisation", desc: "Équipements professionnels pour débouchage efficace." },
+  { title: "Rénovation salle de bain", slug: "renovation-salle-de-bain", desc: "Rénovation complète ou partielle sur mesure." },
+  { title: "Détartrage & entretien", slug: "detartrage-entretien", desc: "Entretien régulier pour éviter les pannes." },
+];
+
+const faqs = [
+  {
+    question: `Intervenez-vous à ${ville} en urgence ?`,
+    answer: `Oui, nous intervenons à ${ville} et aux alentours 24h/24 et 7j/7 pour tous les dépannages urgents. Notre équipe peut être sur place en moins de 30 minutes selon votre localisation.`,
+  },
+  {
+    question: "Proposez-vous des devis gratuits à domicile ?",
+    answer: "Absolument. Nous établissons un devis gratuit et détaillé avant chaque intervention. Aucun travail n'est effectué sans votre accord préalable.",
+  },
+  {
+    question: "Quels sont vos délais d'intervention ?",
+    answer: "Pour les urgences, nous intervenons en moins de 30 minutes. Pour les installations et rénovations, nous planifions ensemble un rendez-vous selon vos disponibilités.",
+  },
+  {
+    question: "Vos plombiers sont-ils certifiés ?",
+    answer: "Tous nos plombiers sont diplômés d'État, assurés et certifiés Qualibat RGE pour les travaux d'économie d'énergie.",
+  },
+];
+---
+
+<Layout
+  title={`Plombier ${ville} — Dépannage 24h/24`}
+  description={`Plombier professionnel à ${ville} (${departement}). Dépannage 24h/24, installation, chauffage, débouchage. Devis gratuit. Intervient en 30 min.`}
+>
+  <Header />
+
+  <script type="application/ld+json" slot="head">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `Plomberie Pro ${ville}`,
+      "image": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=630&fit=crop",
+      "url": `https://plomberiepro-juigny.fr/plombier-${ville.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`,
+      "telephone": "+33123456789",
+      "email": "contact@plomberiepro.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": ville,
+        "postalCode": codePostal,
+        "addressRegion": departement,
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": lat,
+        "longitude": lng
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": ville
+      },
+      "priceRange": "€€",
+      "openingHours": ["Mo-Su 00:00-23:59"],
+      "serviceType": ["Plomberie", "Chauffage", "Installation sanitaire"]
+    })}
+  </script>
+
+  <section class="relative bg-surface-soft overflow-hidden">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center py-16 md:py-24 lg:py-32 space-y-6">
+        <h1 class="text-hero font-semibold text-ink-deep leading-tight">
+          Plombier <span class="text-primary">{ville}</span> — Dépannage 24h/24
+        </h1>
+        <p class="text-lg md:text-xl text-steel leading-relaxed">
+          Votre plombier professionnel à {ville} ({departement}). Plus de 20 ans d'expérience, intervention rapide, devis gratuit.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full hover:bg-accent-deep transition-colors shadow-lg">
+            Demander un devis gratuit
+          </a>
+          <a href="tel:+33123456789" class="inline-flex items-center justify-center gap-2 bg-white text-ink-deep font-semibold px-8 py-4 rounded-full border-2 border-hairline hover:border-primary hover:text-primary transition-colors">
+            01 23 45 67 89
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <AdvantagesBanner />
+
+  <Section title={`Nos services à ${ville}`} subtitle="Des solutions complètes pour tous vos besoins en plomberie">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {services.map((service) => (
+        <a href={`/services/${service.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-hairline-soft hover:border-primary/20 p-6">
+          <h3 class="text-xl font-semibold text-ink-deep mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+          <p class="text-steel text-sm leading-relaxed">{service.desc}</p>
+          <span class="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-4">
+            En savoir plus
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <section class="bg-accent py-12 md:py-16">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white">
+          Urgence plomberie à {ville} ?
+        </h2>
+        <p class="text-white/90 text-lg">
+          Notre équipe est disponible 24h/24 et 7j/7 pour tous vos dépannages urgents à {ville} et aux alentours.
+        </p>
+        <a href="tel:+33123456789" class="inline-flex items-center gap-2 bg-white text-accent font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors shadow-lg text-lg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+          </svg>
+          Appeler maintenant — 01 23 45 67 89
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Section title={`Avis clients à ${ville}`} subtitle="Ce que disent nos clients dans votre région">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {temoignages.map((t) => (
+        <article class="bg-white rounded-xl p-6 shadow-sm border border-hairline-soft flex flex-col">
+          <div class="flex items-center gap-1 mb-4" aria-label={`Note : ${t.rating} sur 5`}>
+            {Array.from({ length: t.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f2a918" stroke="#f2a918" stroke-width="2" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+          <p class="text-steel text-sm leading-relaxed mb-4 flex-grow">"{t.text}"</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-hairline-soft">
+            <img src={t.avatar} alt={`Photo de ${t.name}`} class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="font-semibold text-ink-deep text-sm">{t.name}</p>
+              <p class="text-xs text-steel">{ville}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Questions fréquentes">
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faqs.map((faq) => (
+        <details class="bg-white rounded-xl border border-hairline-soft overflow-hidden group" name="faq-local">
+          <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer list-none font-medium text-ink-deep hover:text-primary transition-colors">
+            {faq.question}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 ml-4 transition-transform group-open:rotate-180" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 text-steel leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <section class="bg-primary py-12 md:py-16">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white">
+          Besoin d'un plombier à { ville } ?
+        </h2>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors shadow-lg">
+          Demander un devis gratuit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

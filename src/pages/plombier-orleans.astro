@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Orléans"
+  departement="Loiret"
+  codePostal="45000"
+  lat={47.9029}
+  lng={1.9086}
+  temoignages={[
+    {
+      name: "Philippe Durand",
+      text: "Intervention rapide pour une fuite d'eau dans notre commerce au centre d'Orléans. Professionnalisme et discrétion appréciés.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Marie-Claire Petit",
+      text: "Rénovation complète de notre salle de bain dans notre appartement orléanais. Design moderne et installation irréprochable.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Thomas Bernard",
+      text: "Entretien annuel de notre chaudière à condensation. Technicien compétent qui a optimisé nos réglages pour économiser du gaz.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

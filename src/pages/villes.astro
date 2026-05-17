@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+
+const villes = [
+  { name: "Juigny-sur-Orge", dept: "Essonne", cp: "91640", slug: "plombier-juigny-sur-orge" },
+  { name: "Paris", dept: "Paris", cp: "75000", slug: "plombier-paris" },
+  { name: "Évry", dept: "Essonne", cp: "91000", slug: "plombier-evry" },
+  { name: "Corbeil-Essonnes", dept: "Essonne", cp: "91100", slug: "plombier-corbeil-essonnes" },
+  { name: "Melun", dept: "Seine-et-Marne", cp: "77000", slug: "plombier-melun" },
+  { name: "Orléans", dept: "Loiret", cp: "45000", slug: "plombier-orleans" },
+  { name: "Brétigny-sur-Orge", dept: "Essonne", cp: "91220", slug: "plombier-bretigny-sur-orge" },
+  { name: "Massy", dept: "Essonne", cp: "91300", slug: "plombier-massy" },
+  { name: "Longjumeau", dept: "Essonne", cp: "91160", slug: "plombier-longjumeau" },
+];
+
+const villesEssonne = villes.filter(v => v.dept === "Essonne");
+const villesAutres = villes.filter(v => v.dept !== "Essonne");
+---
+
+<Layout
+  title="Nos zones d'intervention"
+  description="Plombier professionnel intervenant à Juigny-sur-Orge, Paris, Évry, Corbeil-Essonnes, Melun, Orléans, Brétigny-sur-Orge, Massy, Longjumeau. Dépannage 24h/24."
+>
+  <Header />
+
+  <section class="bg-surface-soft py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center space-y-6 mb-16">
+        <h1 class="text-hero font-semibold text-ink-deep">Nos zones d'intervention</h1>
+        <p class="text-lg text-steel leading-relaxed">
+          Nous intervenons dans toute l'Île-de-France et au-delà. Découvrez nos pages dédiées pour chaque ville et contactez-nous pour un devis gratuit.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-hairline-soft">
+          <h2 class="text-2xl font-semibold text-ink-deep mb-6">Dans l'Essonne (91)</h2>
+          <ul class="space-y-3">
+            {villesEssonne.map((v) => (
+              <li>
+                <a href={`/${v.slug}`} class="flex items-center justify-between group py-2 px-3 rounded-lg hover:bg-surface-soft transition-colors">
+                  <span>
+                    <span class="font-medium text-ink-deep group-hover:text-primary transition-colors">Plombier {v.name}</span>
+                    <span class="text-stone text-sm ml-2">({v.cp})</span>
+                  </span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone group-hover:text-primary transition-colors" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-hairline-soft">
+          <h2 class="text-2xl font-semibold text-ink-deep mb-6">Autres départements</h2>
+          <ul class="space-y-3">
+            {villesAutres.map((v) => (
+              <li>
+                <a href={`/${v.slug}`} class="flex items-center justify-between group py-2 px-3 rounded-lg hover:bg-surface-soft transition-colors">
+                  <span>
+                    <span class="font-medium text-ink-deep group-hover:text-primary transition-colors">Plombier {v.name}</span>
+                    <span class="text-stone text-sm ml-2">({v.dept} — {v.cp})</span>
+                  </span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-stone group-hover:text-primary transition-colors" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-steel mb-4">Votre ville n'est pas dans la liste ? Contactez-nous, nous intervenons probablement dans votre secteur.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full hover:bg-accent-deep transition-colors shadow-lg">
+          Demander un devis gratuit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

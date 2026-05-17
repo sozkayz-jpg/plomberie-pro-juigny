@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Évry"
+  departement="Essonne"
+  codePostal="91000"
+  lat={48.6298}
+  lng={2.4419}
+  temoignages={[
+    {
+      name: "Nathalie Rousseau",
+      text: "Débouchage efficace de notre canalisation principale. Intervention rapide à Évry-Courcouronnes avec un plombier très compétent.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Karim Benali",
+      text: "Entretien annuel de notre chaudière gaz. Technicien ponctuel, travail soigné et explications claires sur le bon fonctionnement.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Isabelle Moreau",
+      text: "Rénovation complète de notre salle de bain dans notre maison à Évry. Résultat magnifique, dans les délais et dans le budget prévu.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

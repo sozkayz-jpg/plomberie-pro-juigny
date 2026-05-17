@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Brétigny-sur-Orge"
+  departement="Essonne"
+  codePostal="91220"
+  lat={48.6113}
+  lng={2.3059}
+  temoignages={[
+    {
+      name: "Céline Fontaine",
+      text: "Dépannage rapide pour une fuite sous l'évier à Brétigny. Plombier sympathique et travail nickel. Devis respecté.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Marc Olivier",
+      text: "Installation de notre nouvelle douche italienne. Conseils avisés sur le choix des matériaux, installation soignée.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Anne-Sophie Girard",
+      text: "Débouchage de notre canalisation principale avec caméra d'inspection. Diagnostic précis et réparation définitive.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

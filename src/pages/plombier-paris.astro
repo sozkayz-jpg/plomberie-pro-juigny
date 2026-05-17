@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Paris"
+  departement="Paris"
+  codePostal="75000"
+  lat={48.8566}
+  lng={2.3522}
+  temoignages={[
+    {
+      name: "Pierre Martin",
+      text: "Excellente rénovation de notre salle de bain dans notre appartement parisien. Travail soigné, dans les délais et conforme au devis.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Claire Dubois",
+      text: "Fuite d'eau résolue en 20 minutes dans le 15e. Tarifs transparents et professionnalisme irréprochable. Je ferai appel à eux à nouveau.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Antoine Leroy",
+      text: "Installation d'une nouvelle chaudière dans notre immeuble haussmannien. Connaissances pointues des contraintes techniques des vieux immeubles parisiens.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

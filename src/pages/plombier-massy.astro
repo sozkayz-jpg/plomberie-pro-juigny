@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Massy"
+  departement="Essonne"
+  codePostal="91300"
+  lat={48.7265}
+  lng={2.2830}
+  temoignages={[
+    {
+      name: "David Cohen",
+      text: "Remplacement urgent de notre chauffe-eau en panne à Massy. Intervenu en 20 minutes, travail propre et rapide.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Laura Martin",
+      text: "Rénovation de notre salle de bain dans notre appartement à Massy. Conception moderne et respect du budget.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Nicolas Blanc",
+      text: "Entretien annuel de la chaudière de notre immeuble. Ponctualité, professionnalisme et rapport détaillé.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

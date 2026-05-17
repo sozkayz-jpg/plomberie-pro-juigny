@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Melun"
+  departement="Seine-et-Marne"
+  codePostal="77000"
+  lat={48.5421}
+  lng={2.6554}
+  temoignages={[
+    {
+      name: "Chantal Mercier",
+      text: "WC bouché résolu en 15 minutes à Melun. Plombier professionnel et sympathique. Je recommande sans hésiter.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Robert Faure",
+      text: "Changement de robinetterie dans notre cuisine. Travail soigné, prix raisonnable et déplacement rapide depuis Juigny.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Émilie Roux",
+      text: "Remplacement de notre vieille chaudière par un modèle plus écologique. Devis détaillé et installation parfaite à Melun.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Corbeil-Essonnes"
+  departement="Essonne"
+  codePostal="91100"
+  lat={48.6140}
+  lng={2.4740}
+  temoignages={[
+    {
+      name: "François Garnier",
+      text: "Fuite détectée et réparée en urgence dans notre pavillon à Corbeil. Intervention en 25 minutes chrono, tarif respecté.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Sandrine Lefebvre",
+      text: "Installation sanitaire impeccable dans notre nouvelle construction. Respect des normes et finitions parfaites. Merci !",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Jean-Pierre Muller",
+      text: "Détartrage professionnel de notre chauffe-eau. Le technicien a pris le temps d'expliquer la maintenance à effectuer.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>

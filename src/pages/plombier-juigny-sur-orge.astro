@@ -1,0 +1,31 @@
+---
+import LocalPage from '../components/LocalPage.astro';
+---
+
+<LocalPage
+  ville="Juigny-sur-Orge"
+  departement="Essonne"
+  codePostal="91640"
+  lat={48.6921}
+  lng={2.3730}
+  temoignages={[
+    {
+      name: "Marie Dupont",
+      text: "Intervention rapide pour une fuite sous mon évier. Le plombier était sympathique et a tout nettoyé avant de partir. Je recommande vivement !",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Sophie Bernard",
+      text: "J'ai appelé en urgence un dimanche soir pour une chaudière en panne. Ils sont arrivés en moins d'une heure à Juigny ! Service client au top.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    },
+    {
+      name: "Lucas Petit",
+      text: "Installation complète de la plomberie pour notre extension. Devis clair, travail propre et conforme aux normes. Merci à toute l'équipe !",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    },
+  ]}
+/>
