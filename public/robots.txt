@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plomberiepro-juigny.fr/sitemap.xml

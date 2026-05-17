@@ -1,0 +1,372 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import AdvantagesBanner from '../components/AdvantagesBanner.astro';
+
+const services = [
+  {
+    title: "Dépannage plomberie",
+    description: "Fuite d'eau, robinet qui goutte, WC bouché : notre équipe intervient rapidement pour tous vos urgences.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    slug: "depannage-plomberie",
+    icon: "droplet",
+  },
+  {
+    title: "Installation sanitaire",
+    description: "Pose de lavabo, douche, baignoire ou évier : nous installons tous vos équipements sanitaires avec soin.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
+    slug: "installation-sanitaire",
+    icon: "sink",
+  },
+  {
+    title: "Chauffage & chaudière",
+    description: "Installation, entretien et réparation de chaudières et systèmes de chauffage pour votre confort.",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
+    slug: "chauffage-chaudiere",
+    icon: "flame",
+  },
+  {
+    title: "Débouchage canalisation",
+    description: "Canalisation bouchée ? Nous utilisons des équipements professionnels pour un débouchage efficace.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+    slug: "debouchage-canalisation",
+    icon: "wrench",
+  },
+  {
+    title: "Rénovation salle de bain",
+    description: "Transformez votre salle de bain avec nos solutions de rénovation complètes et sur mesure.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
+    slug: "renovation-salle-de-bain",
+    icon: "hammer",
+  },
+  {
+    title: "Détartrage & entretien",
+    description: "Entretien régulier de vos installations pour éviter les pannes et prolonger leur durée de vie.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    slug: "detartrage-entretien",
+    icon: "shield-check",
+  },
+];
+
+const faqs = [
+  {
+    question: "Vos professionnels sont-ils certifiés et assurés ?",
+    answer: "Oui, tous nos plombiers sont diplômés d'État et bénéficient d'une assurance responsabilité civile professionnelle. Nous sommes également certifiés Qualibat RGE pour les travaux d'économie d'énergie.",
+  },
+  {
+    question: "Proposez-vous des devis gratuits ?",
+    answer: "Absolument. Nous établissons un devis gratuit et détaillé avant chaque intervention. Aucun travail n'est effectué sans votre accord préalable sur le devis présenté.",
+  },
+  {
+    question: "Quels moyens de paiement acceptez-vous ?",
+    answer: "Nous acceptons les paiements en espèces, par chèque, par carte bancaire, ainsi que les virements bancaires pour les chantiers de rénovation.",
+  },
+  {
+    question: "Proposez-vous des facilités de paiement ?",
+    answer: "Oui, pour les chantiers importants, nous proposons des facilités de paiement en plusieurs fois. Contactez-nous pour connaître les conditions.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Marie Dupont",
+    location: "Juigny-sur-Orge",
+    source: "Google",
+    text: "Intervention rapide et professionnelle pour une fuite sous mon évier. Le plombier était sympathique et a tout nettoyé avant de partir. Je recommande !",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Pierre Martin",
+    location: "Paris 15e",
+    source: "Trustpilot",
+    text: "Excellente rénovation de notre salle de bain. Travail soigné, dans les délais et conforme au devis. Une équipe à l'écoute et compétente.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Sophie Bernard",
+    location: "Juigny-sur-Orge",
+    source: "Google",
+    text: "J'ai appelé en urgence un dimanche soir pour une chaudière en panne. Ils sont arrivés en moins d'une heure ! Service client au top.",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    name: "Lucas Petit",
+    location: "Orléans",
+    source: "Facebook",
+    text: "Installation complète de la plomberie pour notre extension. Devis clair, travail propre et conforme aux normes. Merci à toute l'équipe !",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    rating: 5,
+  },
+];
+
+const articles = [
+  {
+    title: "Comment éviter les fuites d'eau en hiver",
+    excerpt: "Conseils pratiques pour protéger vos canalisations du gel et éviter les dégâts des eaux.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    date: "15 janvier 2025",
+    slug: "eviter-fuites-eau-hiver",
+    category: "Conseils",
+  },
+  {
+    title: "Choisir sa chaudière : nos recommandations",
+    excerpt: "Guide complet pour choisir la chaudière adaptée à votre logement et vos besoins.",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
+    date: "3 janvier 2025",
+    slug: "choisir-chaudiere",
+    category: "Chauffage",
+  },
+  {
+    title: "Signes qui indiquent un problème de canalisation",
+    excerpt: "Apprenez à reconnaître les premiers symptômes d'une canalisation bouchée.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+    date: "20 décembre 2024",
+    slug: "probleme-canalisation",
+    category: "Dépannage",
+  },
+];
+---
+
+<Layout title="Plombier Juigny-sur-Orge & Paris IDF" description="Plombier professionnel à Juigny-sur-Orge et en Île-de-France. Dépannage 24h/24, installation, chauffage. Devis gratuit.">
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="relative bg-surface-soft overflow-hidden" aria-label="Accueil">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center py-16 md:py-24 lg:py-32">
+        <div class="space-y-6">
+          <h1 class="text-hero font-semibold text-ink-deep leading-tight">
+            Votre expert en <span class="text-primary">plomberie</span> de confiance à Juigny-sur-Orge
+          </h1>
+          <p class="text-lg md:text-xl text-steel leading-relaxed">
+            Avec plus de 20 ans d'expérience, nous vous offrons des solutions sur mesure adaptées à vos besoins. Intervention rapide, devis gratuit.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-full hover:bg-accent-deep transition-colors shadow-lg text-center">
+              Demander un devis gratuit
+            </a>
+            <a href="tel:+33123456789" class="inline-flex items-center justify-center gap-2 bg-white text-ink-deep font-semibold px-8 py-4 rounded-full border-2 border-hairline hover:border-primary hover:text-primary transition-colors text-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+              </svg>
+              01 23 45 67 89
+            </a>
+          </div>
+          <div class="flex items-center gap-3 pt-4">
+            <div class="flex -space-x-2" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            </div>
+            <p class="text-sm text-steel">
+              <span class="font-semibold text-ink-deep">2000+</span> avis clients
+              <span class="text-warning">★★★★★</span>
+            </p>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=600&fit=crop" alt="Plombier professionnel au travail sur une installation sanitaire" class="rounded-2xl shadow-2xl w-full object-cover" loading="eager" />
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 md:p-6 hidden md:block">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-success/10 flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#31a24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-ink-deep">Intervention garantie</p>
+                <p class="text-sm text-steel">Satisfait ou remboursé</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <AdvantagesBanner />
+
+  <!-- About Section -->
+  <Section title="Des solutions de plomberie adaptées à vos besoins">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=500&fit=crop" alt="Plombier installant un robinet moderne dans une salle de bain" class="rounded-xl object-cover w-full h-48 md:h-64" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=500&fit=crop" alt="Robinetterie et équipement sanitaire de qualité" class="rounded-xl object-cover w-full h-48 md:h-64 mt-8" loading="lazy" />
+      </div>
+      <div class="space-y-6">
+        <p class="text-lg text-steel leading-relaxed">
+          Basés à Juigny-sur-Orge, nous intervenons dans toute l'Île-de-France pour tous vos besoins en plomberie, chauffage et sanitaire. Notre équipe de professionnels qualifiés met son expertise au service de votre confort.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#31a24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Professionnels qualifiés et assurés</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#31a24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Matériel haut de gamme</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#31a24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Satisfaction client garantie</span>
+          </li>
+        </ul>
+        <a href="/a-propos" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-deep transition-colors">
+          En savoir plus sur nous
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Services Section -->
+  <Section title="Nos services" subtitle="Des solutions complètes pour tous vos besoins en plomberie et chauffage" class="bg-surface-soft">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {services.map((service) => (
+        <a href={`/services/${service.slug}`} class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-hairline-soft hover:border-primary/20">
+          <div class="relative h-48 overflow-hidden">
+            <img src={service.image} alt={`Service ${service.title}`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-ink-deep mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+            <p class="text-steel text-sm leading-relaxed mb-4">{service.description}</p>
+            <span class="inline-flex items-center gap-1 text-primary font-semibold text-sm">
+              En savoir plus
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Emergency Banner -->
+  <section class="bg-accent py-12 md:py-16" aria-label="Bandeau urgence">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white">Une urgence en plomberie ?</h2>
+        <p class="text-white/90 text-lg">Notre équipe est disponible 24h/24 et 7j/7 pour tous vos dépannages urgents.</p>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-white text-accent font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors shadow-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+          </svg>
+          Nous contacter maintenant
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <Section title="Vos questions, nos réponses">
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="bg-white rounded-xl border border-hairline-soft overflow-hidden group" name="faq">
+          <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer list-none font-medium text-ink-deep hover:text-primary transition-colors">
+            {faq.question}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 ml-4 transition-transform group-open:rotate-180" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 text-steel leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+      <p class="text-center pt-6">
+        <a href="/contact" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-deep transition-colors">
+          Une autre question ? Contactez-nous
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </p>
+    </div>
+  </Section>
+
+  <!-- Testimonials Section -->
+  <Section title="Ce que disent nos clients" subtitle="Plus de 2000 clients satisfaits nous font confiance" class="bg-surface-soft">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {testimonials.map((t) => (
+        <article class="bg-white rounded-xl p-6 shadow-sm border border-hairline-soft flex flex-col">
+          <div class="flex items-center gap-1 mb-4" aria-label={`Note : ${t.rating} sur 5`}>
+            {Array.from({ length: t.rating }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#f2a918" stroke="#f2a918" stroke-width="2" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+          <p class="text-steel text-sm leading-relaxed mb-4 flex-grow">"{t.text}"</p>
+          <div class="flex items-center gap-3 pt-4 border-t border-hairline-soft">
+            <img src={t.avatar} alt={`Photo de ${t.name}`} class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="font-semibold text-ink-deep text-sm">{t.name}</p>
+              <p class="text-xs text-steel">{t.location} — {t.source}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Blog Section -->
+  <Section title="Nos derniers articles">
+    <div class="grid md:grid-cols-3 gap-8">
+      {articles.map((article) => (
+        <a href={`/blog/${article.slug}`} class="group block">
+          <div class="relative h-52 rounded-xl overflow-hidden mb-4">
+            <img src={article.image} alt={article.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">{article.category}</span>
+          </div>
+          <time class="text-xs text-steel block mb-2">{article.date}</time>
+          <h3 class="text-lg font-semibold text-ink-deep mb-2 group-hover:text-primary transition-colors">{article.title}</h3>
+          <p class="text-sm text-steel leading-relaxed">{article.excerpt}</p>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/blog" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-deep transition-colors">
+        Voir tous les articles
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <section class="bg-primary py-12 md:py-16" aria-label="Contactez-nous">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-white">Besoin d'un professionnel rapidement ?</h2>
+        <a href="tel:+33123456789" class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors shadow-lg text-lg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path>
+          </svg>
+          Appelez-nous au 01 23 45 67 89
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

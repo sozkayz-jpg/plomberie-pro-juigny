@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+
+const services = [
+  {
+    title: "Dépannage plomberie",
+    description: "Fuite d'eau, robinet qui goutte, WC bouché, chauffe-eau en panne : notre équipe intervient rapidement pour tous vos dépannages urgents. Disponible 24h/24 et 7j/7.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    slug: "depannage-plomberie",
+    features: ["Intervention en 30 minutes", "Devis gratuit avant travaux", "Garantie 1 an pièces et main-d'œuvre"],
+  },
+  {
+    title: "Installation sanitaire",
+    description: "Pose de lavabo, douche, baignoire, évier ou WC : nous installons tous vos équipements sanitaires avec soin et dans le respect des normes.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
+    slug: "installation-sanitaire",
+    features: ["Conseil personnalisé", "Installation conforme aux normes", "Matériel de qualité"],
+  },
+  {
+    title: "Chauffage & chaudière",
+    description: "Installation, entretien annuel et réparation de chaudières et systèmes de chauffage pour votre confort toute l'année.",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
+    slug: "chauffage-chaudiere",
+    features: ["Toutes marques", "Entretien obligatoire", "Économies d'énergie"],
+  },
+  {
+    title: "Débouchage canalisation",
+    description: "Canalisation bouchée, évier qui se vide lentement, mauvaises odeurs : nous utilisons des équipements professionnels pour un débouchage efficace et durable.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+    slug: "debouchage-canalisation",
+    features: ["Caméra d'inspection", "Hydrocurage", "Détection des fuites"],
+  },
+  {
+    title: "Rénovation salle de bain",
+    description: "Transformez votre salle de bain avec nos solutions de rénovation complètes. Du simple remplacement de baignoire à la rénovation totale.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
+    slug: "renovation-salle-de-bain",
+    features: ["Design sur mesure", "Devis détaillé", "Travaux clés en main"],
+  },
+  {
+    title: "Détartrage & entretien",
+    description: "Entretien régulier de vos installations pour éviter les pannes, prolonger la durée de vie de vos équipements et réduire votre consommation d'énergie.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    slug: "detartrage-entretien",
+    features: ["Contrat d'entretien", "Détartrage professionnel", "Conseils prévention"],
+  },
+];
+---
+
+<Layout title="Nos services" description="Découvrez tous nos services de plomberie : dépannage, installation, chauffage, débouchage, rénovation et entretien à Juigny-sur-Orge et en Île-de-France.">
+  <Header />
+
+  <section class="bg-surface-soft py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center space-y-6 mb-16">
+        <h1 class="text-hero font-semibold text-ink-deep">Nos services</h1>
+        <p class="text-lg text-steel leading-relaxed">
+          Des solutions complètes pour tous vos besoins en plomberie, chauffage et sanitaire. Interventions à Juigny-sur-Orge et en Île-de-France.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        {services.map((service, index) => (
+          <article class={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div class={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
+              <img src={service.image} alt={service.title} class="rounded-2xl shadow-lg w-full h-64 md:h-80 object-cover" loading="lazy" />
+            </div>
+            <div class={`space-y-4 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+              <h2 class="text-2xl md:text-3xl font-semibold text-ink-deep">{service.title}</h2>
+              <p class="text-steel leading-relaxed">{service.description}</p>
+              <ul class="space-y-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm text-steel">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#31a24c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <a href={`/services/${service.slug}`} class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-deep transition-colors">
+                En savoir plus
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  {
+    title: "Comment éviter les fuites d'eau en hiver",
+    excerpt: "Conseils pratiques pour protéger vos canalisations du gel et éviter les dégâts des eaux pendant les périodes de froid.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    date: "15 janvier 2025",
+    slug: "eviter-fuites-eau-hiver",
+    category: "Conseils",
+    content: "L'hiver est une période critique pour votre plomberie. Le gel peut endommager vos canalisations et provoquer des fuites coûteuses. Voici nos conseils pour protéger votre installation...",
+  },
+  {
+    title: "Choisir sa chaudière : nos recommandations",
+    excerpt: "Guide complet pour choisir la chaudière adaptée à votre logement et vos besoins en chauffage.",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop",
+    date: "3 janvier 2025",
+    slug: "choisir-chaudiere",
+    category: "Chauffage",
+    content: "Le choix d'une chaudière est une décision importante qui impacte votre confort et votre facture énergétique. Découvrez les critères essentiels pour faire le bon choix...",
+  },
+  {
+    title: "Signes qui indiquent un problème de canalisation",
+    excerpt: "Apprenez à reconnaître les premiers symptômes d'une canalisation bouchée avant qu'elle ne devienne un problème majeur.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+    date: "20 décembre 2024",
+    slug: "probleme-canalisation",
+    category: "Dépannage",
+    content: "Une canalisation bouchée ne se manifeste pas toujours de manière évidente. Découvrez les signes à surveiller pour agir avant qu'il ne soit trop tard...",
+  },
+  {
+    title: "Entretien de votre chauffe-eau : mode d'emploi",
+    excerpt: "Tout ce que vous devez savoir pour entretenir votre chauffe-eau et prolonger sa durée de vie.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop",
+    date: "5 décembre 2024",
+    slug: "entretien-chauffe-eau",
+    category: "Conseils",
+    content: "Un chauffe-eau bien entretenu consomme moins d'énergie et dure plus longtemps. Voici les gestes simples à adopter...",
+  },
+  {
+    title: "Rénovation de salle de bain : par où commencer ?",
+    excerpt: "Guide étape par étape pour planifier votre projet de rénovation de salle de bain.",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
+    date: "18 novembre 2024",
+    slug: "renovation-salle-de-bain-guide",
+    category: "Rénovation",
+    content: "La rénovation d'une salle de bain est un projet important qui nécessite une planification minutieuse. Découvrez les étapes clés...",
+  },
+  {
+    title: "Pourquoi mon robinet goutte-t-il ?",
+    excerpt: "Les causes courantes d'un robinet qui goutte et comment y remédier efficacement.",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop",
+    date: "2 novembre 2024",
+    slug: "robinet-goutte",
+    category: "Dépannage",
+    content: "Un robinet qui goutte peut sembler anodin, mais il peut faire augmenter votre facture d'eau. Découvrez les causes et solutions...",
+  },
+];
+---
+
+<Layout title="Blog" description="Conseils plomberie, astuces chauffage et guides pratiques par nos experts à Juigny-sur-Orge.">
+  <Header />
+
+  <section class="bg-surface-soft py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center space-y-6 mb-16">
+        <h1 class="text-hero font-semibold text-ink-deep">Notre blog</h1>
+        <p class="text-lg text-steel leading-relaxed">
+          Conseils, astuces et guides pratiques par nos experts en plomberie et chauffage.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map((article) => (
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm border border-hairline-soft flex flex-col">
+            <div class="relative h-48 overflow-hidden">
+              <img src={article.image} alt={article.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">{article.category}</span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <time class="text-xs text-steel block mb-2">{article.date}</time>
+              <h2 class="text-lg font-semibold text-ink-deep mb-2 hover:text-primary transition-colors">
+                <a href={`/blog/${article.slug}`}>{article.title}</a>
+              </h2>
+              <p class="text-sm text-steel leading-relaxed mb-4 flex-grow">{article.excerpt}</p>
+              <a href={`/blog/${article.slug}`} class="inline-flex items-center gap-1 text-primary font-semibold text-sm hover:text-primary-deep transition-colors">
+                Lire l'article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

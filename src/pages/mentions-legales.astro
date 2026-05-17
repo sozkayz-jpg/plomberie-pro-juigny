@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Mentions légales" description="Mentions légales du site Plomberie Pro Juigny.">
+  <Header />
+
+  <section class="bg-surface-soft py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-hero font-semibold text-ink-deep mb-8">Mentions légales</h1>
+
+        <div class="space-y-8 text-steel">
+          <div>
+            <h2 class="text-xl font-semibold text-ink-deep mb-3">Éditeur du site</h2>
+            <p>Plomberie Pro Juigny<br />
+            12 Rue de la République<br />
+            91640 Juigny-sur-Orge<br />
+            France</p>
+            <p class="mt-2">Téléphone : <a href="tel:+33123456789" class="text-primary">01 23 45 67 89</a><br />
+            Email : <a href="mailto:contact@plomberiepro.fr" class="text-primary">contact@plomberiepro.fr</a></p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-ink-deep mb-3">Directeur de la publication</h2>
+            <p>Jean Dupont, gérant de Plomberie Pro Juigny.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-ink-deep mb-3">Hébergement</h2>
+            <p>Ce site est hébergé par Vercel Inc.<br />
+            340 S Lemon Ave #4133<br />
+            Walnut, CA 91789<br />
+            États-Unis</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-ink-deep mb-3">Propriété intellectuelle</h2>
+            <p>L'ensemble du contenu de ce site (textes, images, logos) est la propriété exclusive de Plomberie Pro Juigny. Toute reproduction, représentation ou diffusion, intégrale ou partielle, est interdite sans autorisation préalable.</p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold text-ink-deep mb-3">Responsabilité</h2>
+            <p>Les informations fournies sur ce site le sont à titre indicatif. Plomberie Pro Juigny ne saurait être tenue responsable des erreurs ou omissions, ni des conséquences de l'utilisation des informations diffusées.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

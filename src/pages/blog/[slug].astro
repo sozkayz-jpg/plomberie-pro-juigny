@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const articles = [
+    {
+      slug: "eviter-fuites-eau-hiver",
+      title: "Comment éviter les fuites d'eau en hiver",
+      description: "Conseils pratiques pour protéger vos canalisations du gel et éviter les dégâts des eaux pendant les périodes de froid.",
+      image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop",
+      date: "15 janvier 2025",
+      category: "Conseils",
+      readingTime: "5 min",
+      content: `
+<h2>Pourquoi le gel menace vos canalisations ?</h2>
+<p>Lorsque l'eau gèle, elle augmente de volume d'environ 9%. Cette expansion exerce une pression considérable sur vos canalisations, pouvant provoquer des fissures, des éclatements et des fuites importantes.</p>
+
+<h2>Nos conseils pour protéger vos tuyaux</h2>
+<h3>1. Isolez vos canalisations exposées</h3>
+<p>Les tuyaux situés dans des zones non chauffées (garage, cave, grenier) sont les plus vulnérables. Utilisez des manchons isolants en mousse ou en caoutchouc pour les protéger du froid.</p>
+
+<h3>2. Laissez couler un filet d'eau</h3>
+<p>Par temps très froid, laissez couler un léger filet d'eau de vos robinets. L'eau en mouvement a moins tendance à geler.</p>
+
+<h3>3. Ouvrez les portes des placards</h3>
+<p>Si vos canalisations passent derrière des placards de cuisine ou de salle de bain, laissez les portes ouvertes pour permettre à l'air chaud de circuler.</p>
+
+<h3>4. Vidangez vos installations extérieures</h3>
+<p>N'oubliez pas de vider et débrancher vos tuyaux d'arrosage avant l'hiver.</p>
+
+<h2>En cas de canalisation gelée</h2>
+<p>Si malgré vos précautions une canalisation gèle, ne paniquez pas. Voici ce qu'il faut faire :</p>
+<ul>
+<li>Fermez l'alimentation en eau principale</li>
+<li>Ouvrez le robinet pour soulager la pression</li>
+<li>Appliquez une source de chaleur douce (sèche-cheveux, serviette chaude)</li>
+<li><strong>N'utilisez jamais de flamme nue</strong></li>
+</ul>
+
+<p>Si vous constatez une fuite après le dégel, contactez immédiatement un professionnel. Notre équipe est disponible 24h/24 pour les urgences.</p>
+      `,
+    },
+    {
+      slug: "choisir-chaudiere",
+      title: "Choisir sa chaudière : nos recommandations",
+      description: "Guide complet pour choisir la chaudière adaptée à votre logement et vos besoins en chauffage.",
+      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=600&fit=crop",
+      date: "3 janvier 2025",
+      category: "Chauffage",
+      readingTime: "7 min",
+      content: `
+<h2>Les différents types de chaudières</h2>
+<p>Le marché propose plusieurs types de chaudières, chacune avec ses avantages et inconvénients. Voici un guide pour vous aider à faire le bon choix.</p>
+
+<h3>Chaudière à gaz à condensation</h3>
+<p>La plus répandue et la plus économique à l'usage. Elle récupère la chaleur des fumées pour chauffer l'eau, ce qui réduit considérablement votre consommation de gaz.</p>
+
+<h3>Chaudière électrique</h3>
+<p>Idéale pour les petits logements ou les zones sans raccordement au gaz. Installation simple mais coût de fonctionnement plus élevé.</p>
+
+<h3>Chaudière à fioul</h3>
+<p>Moins courante aujourd'hui, elle reste une option pour les zones non desservies par le gaz naturel. Nécessite un stockage du fioul.</p>
+
+<h2>Critères de choix essentiels</h2>
+<ul>
+<li><strong>Surface à chauffer</strong> : détermine la puissance nécessaire (en kW)</li>
+<li><strong>Nombre de personnes</strong> : influence la capacité en eau chaude</li>
+<li><strong>Énergie disponible</strong> : gaz, électricité ou fioul</li>
+<li><strong>Budget</strong> : achat ET fonctionnement</li>
+</ul>
+
+<p>N'hésitez pas à nous contacter pour un conseil personnalisé et un devis gratuit.</p>
+      `,
+    },
+    {
+      slug: "probleme-canalisation",
+      title: "Signes qui indiquent un problème de canalisation",
+      description: "Apprenez à reconnaître les premiers symptômes d'une canalisation bouchée avant qu'elle ne devienne un problème majeur.",
+      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&h=600&fit=crop",
+      date: "20 décembre 2024",
+      category: "Dépannage",
+      readingTime: "4 min",
+      content: `
+<h2>Les signes d'alerte à surveiller</h2>
+
+<h3>1. L'eau se vide lentement</h3>
+<p>Si votre évier, lavabo ou douche met plus de temps qu'à l'habitude à se vider, c'est souvent le premier signe d'un bouchon en formation.</p>
+
+<h3>2. Mauvaises odeurs</h3>
+<p>Des odeurs désagréables provenant de vos canalisations indiquent souvent un blocage qui fait remonter les gaz et les résidus.</p>
+
+<h3>3. Bruits anormaux</h3>
+<p>Des gargouillements ou des bruits de succion dans vos tuyaux sont le signe que l'air ne circule plus correctement.</p>
+
+<h3>4. Remontées d'eau</h3>
+<p>Si l'eau remonte dans votre évier ou douche lorsque vous tirez la chasse, le problème est probablement situé dans la canalisation principale.</p>
+
+<h2>Quand appeler un professionnel ?</h2>
+<p>Si vos méthodes maison (ventouse, produits déboucheurs) ne fonctionnent pas, il est temps de faire appel à un professionnel. Une intervention précoce évite des dégâts plus importants et coûteux.</p>
+      `,
+    },
+    {
+      slug: "entretien-chauffe-eau",
+      title: "Entretien de votre chauffe-eau : mode d'emploi",
+      description: "Tout ce que vous devez savoir pour entretenir votre chauffe-eau et prolonger sa durée de vie.",
+      image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=600&fit=crop",
+      date: "5 décembre 2024",
+      category: "Conseils",
+      readingTime: "5 min",
+      content: `
+<h2>Pourquoi entretenir votre chauffe-eau ?</h2>
+<p>Un chauffe-eau bien entretenu dure plus longtemps, consomme moins d'énergie et fournit une eau chaude de meilleure qualité. L'entretien régulier évite également les pannes coûteuses.</p>
+
+<h2>Les gestes d'entretien</h2>
+
+<h3>1. Vidange et détartrage</h3>
+<p>Effectuez une vidange complète au moins une fois par an pour éliminer les dépôts de calcaire. Cela améliore l'efficacité énergétique et prolonge la durée de vie de l'appareil.</p>
+
+<h3>2. Vérification de l'anode</h3>
+<p>L'anode sacrificielle protège le réservoir de la corrosion. Vérifiez son état tous les 2-3 ans et remplacez-la si nécessaire.</p>
+
+<h3>3. Réglage de la température</h3>
+<p>Une température de 55-60°C est idéale. Au-delà, vous risquez d'accentuer le dépôt de calcaire et de consommer inutilement de l'énergie.</p>
+
+<h2>Quand faire appel à un professionnel ?</h2>
+<p>L'entretien annuel par un professionnel est recommandé pour les chauffe-eau électriques et obligatoire pour certains modèles de chaudières. Contactez-nous pour planifier votre entretien.</p>
+      `,
+    },
+    {
+      slug: "renovation-salle-de-bain-guide",
+      title: "Rénovation de salle de bain : par où commencer ?",
+      description: "Guide étape par étape pour planifier votre projet de rénovation de salle de bain.",
+      image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=600&fit=crop",
+      date: "18 novembre 2024",
+      category: "Rénovation",
+      readingTime: "8 min",
+      content: `
+<h2>Définir votre projet</h2>
+<p>Avant de commencer les travaux, prenez le temps de définir précisément vos besoins et envies. Quel budget ? Quel style ? Quels équipements ?</p>
+
+<h2>Les étapes clés</h2>
+
+<h3>1. Le diagnostic</h3>
+<p>Faites établir un diagnostic complet de l'existant : état de la plomberie, de l'électricité, des sols et murs.</p>
+
+<h3>2. Le plan d'aménagement</h3>
+<p>Définissez l'emplacement de chaque élément en tenant compte des contraintes techniques et de vos habitudes.</p>
+
+<h3>3. Le choix des matériaux</h3>
+<p>Carrelage, robinetterie, meubles : choisissez des matériaux adaptés à l'humidité et faciles d'entretien.</p>
+
+<h3>4. Les travaux</h3>
+<p>Démolition, plomberie, électricité, carrelage, peinture : respectez l'ordre des travaux pour éviter les problèmes.</p>
+
+<p>Confiez votre projet à nos professionnels pour une rénovation en toute sérénité.</p>
+      `,
+    },
+    {
+      slug: "robinet-goutte",
+      title: "Pourquoi mon robinet goutte-t-il ?",
+      description: "Les causes courantes d'un robinet qui goutte et comment y remédier efficacement.",
+      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1200&h=600&fit=crop",
+      date: "2 novembre 2024",
+      category: "Dépannage",
+      readingTime: "3 min",
+      content: `
+<h2>Les causes d'un robinet qui goutte</h2>
+
+<h3>1. Joint usé</h3>
+<p>Le joint en caoutchouc situé dans la tête du robinet s'use avec le temps et ne fait plus étanchéité. C'est la cause la plus fréquente.</p>
+
+<h3>2. Clapet défectueux</h3>
+<p>Sur les robinets à clapet, une usure du clapet ou du siège peut provoquer des gouttes.</p>
+
+<h3>3. Pression trop élevée</h3>
+<p>Une pression d'eau excessive peut forcer le passage de l'eau même quand le robinet est fermé.</p>
+
+<h2>Pourquoi ne pas ignorer un robinet qui goutte ?</h2>
+<p>Un robinet qui goutte peut vous coûter jusqu'à 100 litres d'eau par jour ! En plus de l'impact écologique, cela se traduit par une augmentation de votre facture d'eau.</p>
+
+<p>Pour une réparation durable, faites appel à nos plombiers professionnels.</p>
+      `,
+    },
+  ];
+
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+---
+
+<Layout title={article.title} description={article.description}>
+  <Header />
+
+  <!-- Hero -->
+  <section class="relative h-64 md:h-80">
+    <img src={article.image} alt={article.title} class="w-full h-full object-cover" loading="eager" />
+    <div class="absolute inset-0 bg-ink-deep/60"></div>
+    <div class="absolute inset-0 flex items-end">
+      <div class="container-custom pb-8">
+        <span class="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">{article.category}</span>
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-white max-w-3xl">{article.title}</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center gap-4 text-sm text-steel mb-8">
+          <time>{article.date}</time>
+          <span>•</span>
+          <span>{article.readingTime} de lecture</span>
+        </div>
+
+        <article class="prose max-w-none">
+          <Fragment set:html={article.content} />
+        </article>
+
+        <div class="mt-12 pt-8 border-t border-hairline-soft">
+          <p class="text-steel mb-4">Besoin d'un conseil personnalisé ou d'une intervention ?</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-deep transition-colors">
+              Demander un devis
+            </a>
+            <a href="tel:+33123456789" class="inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent-deep transition-colors">
+              Appeler en urgence
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

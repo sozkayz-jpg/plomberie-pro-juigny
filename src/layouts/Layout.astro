@@ -1,0 +1,89 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = "Plombier professionnel à Juigny-sur-Orge et en Île-de-France. Dépannage 24h/24, installation sanitaire, chauffage. Devis gratuit.",
+  image = "/images/og-default.jpg",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteName = "Plomberie Pro Juigny";
+const fullTitle = title ? `${title} | ${siteName}` : siteName;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, Astro.site || Astro.url)} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image, Astro.site || Astro.url)} />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Plomberie Pro Juigny",
+    "image": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200&h=630&fit=crop",
+    "url": "https://plomberiepro-juigny.fr",
+    "telephone": "+33123456789",
+    "email": "contact@plomberiepro.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12 Rue de la République",
+      "addressLocality": "Juigny-sur-Orge",
+      "postalCode": "91640",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.6921,
+      "longitude": 2.3730
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": ["Juigny-sur-Orge", "Paris", "Île-de-France"]
+    },
+    "priceRange": "€€",
+    "openingHours": ["Mo-Su 00:00-23:59"],
+    "paymentAccepted": ["Carte bancaire", "Espèces", "Chèque"]
+  }
+  </script>
+
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

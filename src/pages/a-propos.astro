@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+
+const stats = [
+  { number: "20+", label: "Années d'expérience" },
+  { number: "2000+", label: "Clients satisfaits" },
+  { number: "30min", label: "Temps d'intervention moyen" },
+  { number: "24/7", label: "Disponibilité" },
+];
+
+const team = [
+  {
+    name: "Jean Dupont",
+    role: "Fondateur & Plombier expert",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=400&fit=crop&crop=face",
+    description: "20 ans d'expérience dans la plomberie. Diplômé d'État et certifié RGE.",
+  },
+  {
+    name: "Marc Lefebvre",
+    role: "Plombier chauffagiste",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face",
+    description: "Spécialiste en installation et réparation de chaudières.",
+  },
+  {
+    name: "Sophie Martin",
+    role: "Responsable clientèle",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=400&fit=crop&crop=face",
+    description: "À votre écoute pour organiser vos interventions et répondre à vos questions.",
+  },
+];
+---
+
+<Layout title="À propos" description="Découvrez Plomberie Pro Juigny, votre plombier professionnel à Juigny-sur-Orge avec plus de 20 ans d'expérience.">
+  <Header />
+
+  <!-- Hero -->
+  <section class="bg-surface-soft py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <h1 class="text-hero font-semibold text-ink-deep">À propos de Plomberie Pro Juigny</h1>
+        <p class="text-lg text-steel leading-relaxed">
+          Basés à Juigny-sur-Orge, nous sommes votre partenaire de confiance pour tous vos besoins en plomberie, chauffage et sanitaire en Île-de-France.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 md:py-16 bg-primary">
+    <div class="container-custom">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map((stat) => (
+          <div class="text-center text-white">
+            <p class="text-3xl md:text-4xl font-bold mb-2">{stat.number}</p>
+            <p class="text-white/80 text-sm">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre histoire -->
+  <Section title="Notre histoire">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4">
+        <p class="text-steel leading-relaxed">
+          Fondée en 2005 par Jean Dupont, Plomberie Pro Juigny est née d'une passion pour le métier et d'un engagement envers la qualité. Ce qui a commencé comme une petite entreprise familiale est devenu aujourd'hui une référence en matière de plomberie dans le Val-de-Marne et en Île-de-France.
+        </p>
+        <p class="text-steel leading-relaxed">
+          Au fil des années, nous avons bâti notre réputation sur des valeurs simples : professionnalisme, transparence et satisfaction client. Chaque intervention, quelle que soit sa taille, mérite la même attention et le même soin.
+        </p>
+        <p class="text-steel leading-relaxed">
+          Aujourd'hui, notre équipe de professionnels qualifiés intervient 24h/24 et 7j/7 pour répondre à tous vos besoins en plomberie, chauffage et installation sanitaire.
+        </p>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=500&fit=crop" alt="Notre équipe de plombiers professionnels au travail" class="rounded-2xl shadow-lg w-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Notre équipe -->
+  <Section title="Notre équipe" subtitle="Des professionnels qualifiés à votre service" class="bg-surface-soft">
+    <div class="grid md:grid-cols-3 gap-8">
+      {team.map((member) => (
+        <article class="bg-white rounded-xl overflow-hidden shadow-sm border border-hairline-soft">
+          <img src={member.image} alt={`Photo de ${member.name}, ${member.role}`} class="w-full h-64 object-cover" loading="lazy" />
+          <div class="p-6">
+            <h3 class="font-semibold text-ink-deep text-lg">{member.name}</h3>
+            <p class="text-primary text-sm font-medium mb-2">{member.role}</p>
+            <p class="text-steel text-sm">{member.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Zone d'intervention -->
+  <Section title="Zone d'intervention">
+    <div class="max-w-2xl mx-auto text-center space-y-6">
+      <p class="text-steel leading-relaxed">
+        Nous intervenons principalement à <strong class="text-ink-deep">Juigny-sur-Orge</strong> et dans toute l'<strong class="text-ink-deep">Île-de-France</strong>, incluant Paris et sa proche banlieue.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Juigny-sur-Orge</div>
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Paris</div>
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Orléans</div>
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Évry</div>
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Corbeil-Essonnes</div>
+        <div class="bg-surface-soft rounded-lg p-4 text-steel">Melun</div>
+      </div>
+    </div>
+  </Section>
+
+  <Footer />
+</Layout>
